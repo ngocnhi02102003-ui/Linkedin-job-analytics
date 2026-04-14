@@ -1,0 +1,33 @@
+# 🚀  .gitignore
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Data (Ignore heavy datasets to avoid GitHub limits)
+data_raw/
+data_processed/
+*.zip
+*.csv
+*.xlsx
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
