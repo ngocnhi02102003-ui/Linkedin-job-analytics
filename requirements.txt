@@ -5,3 +5,5 @@ scikit-learn
 joblib
 openpyxl
 pyarrow
+streamlit
+plotly
