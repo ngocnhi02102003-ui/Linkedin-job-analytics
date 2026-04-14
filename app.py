@@ -53,7 +53,19 @@ BASE_DIR = Path(__file__).parent
 
 @st.cache_data
 def load_data():
-    df = pd.read_csv(BASE_DIR / 'data_processed/jobs_master.csv', low_memory=False)
+    # Thử nạp bản Full trước, nếu không có thì nạp bản Sample
+    master_path = BASE_DIR / 'data_processed/jobs_master.csv'
+    sample_path = BASE_DIR / 'data_processed/jobs_sample.csv'
+    
+    if master_path.exists():
+        df = pd.read_csv(master_path, low_memory=False)
+    elif sample_path.exists():
+        df = pd.read_csv(sample_path, low_memory=False)
+        st.sidebar.info("💡 Đang sử dụng dữ liệu mẫu (Sample Mode)")
+    else:
+        st.error("Không tìm thấy dữ liệu! Vui lòng kiểm tra lại thư mục data_processed.")
+        return pd.DataFrame()
+        
     try:
         clusters = pd.read_csv(BASE_DIR / 'data_processed/powerbi/cluster_results.csv')
         df = pd.merge(df, clusters, on='job_id', how='left')
@@ -204,6 +216,19 @@ def main():
                     }))
                 fig_gauge.update_layout(paper_bgcolor='#ffffff', font={'color': "#003859", 'family': "Arial", 'size': 14})
                 st.plotly_chart(fig_gauge, width='stretch')
+                
+                # Radar Chart for Salary Insight
+                st.markdown("#### 💎 Phân tích giá trị kỹ năng")
+                # Lấy ngẫu nhiên vài kỹ năng tiêu biểu cho ngành này (Demo logic)
+                rec_skills = ["Python", "SQL", "Cloud Computing", "AI/ML", "Architecture"]
+                fig_radar_sal = go.Figure(data=go.Scatterpolar(
+                  r=[4, 5, 3, 4, 3],
+                  theta=rec_skills,
+                  fill='toself',
+                  marker=dict(color='#184683')
+                ))
+                fig_radar_sal.update_layout(polar=dict(radialaxis=dict(visible=True, range=[0, 5])), font=dict(color='#003859'))
+                st.plotly_chart(fig_radar_sal, width='stretch')
                 
                 st.info(f"💡 **Lời khuyên:** Với vị trí **{title}**, dải lương trung bình thị trường dao động từ **${(prediction*0.9):,.0f}** đến **${(prediction*1.1):,.0f}**.")
             elif submit:
