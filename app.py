@@ -57,14 +57,22 @@ def load_data():
     master_path = BASE_DIR / 'data_processed/jobs_master.csv'
     sample_path = BASE_DIR / 'data_processed/jobs_sample.csv'
     
+    # DEBUG: Bỏ comment dòng dưới nếu muốn xem đường dẫn thực tế trên Cloud
+    # st.write(f"🔍 DEBUG: Looking for data at: {sample_path}")
+    
     if master_path.exists():
         df = pd.read_csv(master_path, low_memory=False)
     elif sample_path.exists():
         df = pd.read_csv(sample_path, low_memory=False)
         st.sidebar.info("💡 Đang sử dụng dữ liệu mẫu (Sample Mode)")
     else:
-        st.error("Không tìm thấy dữ liệu! Vui lòng kiểm tra lại thư mục data_processed.")
-        return pd.DataFrame()
+        # Nếu vẫn không thấy, thử tìm ở thư mục cha (cho chắc chắn)
+        alt_path = Path('data_processed/jobs_sample.csv').absolute()
+        if alt_path.exists():
+            df = pd.read_csv(alt_path, low_memory=False)
+        else:
+            st.error(f"Không tìm thấy dữ liệu tại {sample_path}!")
+            return pd.DataFrame()
         
     try:
         clusters = pd.read_csv(BASE_DIR / 'data_processed/powerbi/cluster_results.csv')
