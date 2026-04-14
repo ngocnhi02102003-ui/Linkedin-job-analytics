@@ -1,0 +1,5 @@
+child_table,child_key,parent_table,parent_key,invalid_records_count,invalid_records_pct
+postings,company_id,companies,company_id,1,8.07434860192654e-06
+job_skills,job_id,postings,job_id,7990,0.03737696942479698
+job_industries,job_id,postings,job_id,5845,0.03546551138294258
+salaries,job_id,postings,job_id,4712,0.11553267132524213

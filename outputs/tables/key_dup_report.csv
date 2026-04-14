@@ -1,0 +1,9 @@
+table_name,key_columns,total_rows,key_duplicates,duplicate_pct
+postings,job_id,123849,0,0.0
+companies,company_id,24473,0,0.0
+employee_counts,company_id,35787,11314,0.31614832201637466
+job_skills,"job_id, skill_abr",213768,0,0.0
+job_industries,"job_id, industry_id",164808,0,0.0
+salaries,job_id,40785,0,0.0
+industries,industry_id,422,0,0.0
+skills,skill_abr,35,0,0.0

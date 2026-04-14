@@ -1,0 +1,2 @@
+model,k,silhouette_score
+K-Means,7,0.6160617463454506

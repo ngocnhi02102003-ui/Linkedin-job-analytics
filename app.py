@@ -104,6 +104,10 @@ def main():
     df = load_data()
     salary_model, hot_job_model = load_models()
 
+    if df.empty:
+        st.warning("⚠️ Hiện chưa có dữ liệu để hiển thị. Vui lòng kiểm tra lại tệp dữ liệu mẫu trong thư mục `data_processed` trên GitHub.")
+        st.stop()
+
     if page == "🏠 Khám phá Thị trường":
         st.title("📊 LinkedIn Job Market Dashboard")
         st.markdown("---")

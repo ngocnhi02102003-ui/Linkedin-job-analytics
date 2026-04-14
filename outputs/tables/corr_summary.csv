@@ -1,0 +1,8 @@
+,normalized_salary,views,applies,benefit_count,skill_count,description_length,employee_count
+normalized_salary,1.0,-0.002,-0.002,0.005,-0.008,-0.009,0.003
+views,-0.002,1.0,0.494,0.017,0.004,-0.012,-0.008
+applies,-0.002,0.494,1.0,-0.011,-0.033,-0.067,-0.031
+benefit_count,0.005,0.017,-0.011,1.0,0.058,0.057,-0.04
+skill_count,-0.008,0.004,-0.033,0.058,1.0,0.055,0.082
+description_length,-0.009,-0.012,-0.067,0.057,0.055,1.0,0.141
+employee_count,0.003,-0.008,-0.031,-0.04,0.082,0.141,1.0

@@ -15,9 +15,12 @@ __pycache__/
 
 # Data (Ignore heavy datasets to avoid GitHub limits)
 data_raw/
-data_processed/
+data_processed/*
+!data_processed/jobs_sample.csv
+!data_processed/powerbi/
+!data_processed/powerbi/cluster_results.csv
 *.zip
-*.csv
+# *.csv # Comment out to allow specific CSVs
 *.xlsx
 
 # Jupyter Notebook

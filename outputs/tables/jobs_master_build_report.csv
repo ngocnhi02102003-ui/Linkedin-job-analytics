@@ -1,0 +1,16 @@
+step,rows_in,rows_out,note
+drop_dup_job_id,123849,123849,duplicate job_id removed
+postings_final,123849,123849,
+salaries_final,40785,40785,
+benefits_agg,67943,30023,
+job_skills_agg,213768,126807,
+job_industries_primary,164808,127125,
+companies_final,24473,24473,
+employee_counts_latest,35787,24473,
+join_salary,123849,123849,
+join_benefits,123849,123849,
+join_skills,123849,123849,
+join_industry,123849,123849,
+join_company,123849,123849,
+join_employee_counts,123849,123849,
+dedup_final,123849,123849,ensure 1-row-per-job_id
