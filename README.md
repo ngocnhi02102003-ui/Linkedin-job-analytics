@@ -66,4 +66,28 @@ Dự án được đóng gói thành một giao diện **Web App trực quan**:
 3. Khám phá Market Trends và công cụ dự báo **AI Salary Estimator** ở địa chỉ `http://localhost:8501`.
 
 ---
+
+## 🚀 Hướng dẫn Chạy Ứng dụng
+
+### 1. Chạy dưới máy cục bộ (Local)
+Dành cho buổi thuyết trình để đảm bảo tốc độ và sự ổn định:
+```bash
+# Di chuyển vào thư mục dự án
+cd linkedin_jobs_github_repo
+
+# Cài đặt thư viện
+pip install -r requirements.txt
+
+# Khởi chạy App
+streamlit run app.py
+```
+
+### 2. Triển khai lên Web (Streamlit Cloud)
+Để chia sẻ dự án cho mọi người truy cập qua Internet:
+1.  Đăng nhập vào [Streamlit Cloud](https://share.streamlit.io/) bằng tài khoản GitHub.
+2.  Nhấn **Create app** -> Chọn Repository này.
+3.  Tại mục **Main file path**, nhập: `app.py`.
+4.  Nhấn **Deploy** và đợi 1-2 phút để hệ thống khởi tao môi trường.
+
+---
 *Dự án Đồ Án Tốt Nghiệp / Portfolio Chuyên Khoa Data Analytics*
